@@ -1,0 +1,178 @@
+.cart_title {
+  margin-top: 60px;
+}
+
+.cart_home {
+  display: flex;
+  gap: 20px;
+}
+
+.cart_top_text {
+  display: flex;
+  gap: 20px;
+}
+
+.cart_box {
+  border: 1px solid #e4e9ee;
+  border-radius: 12px;
+  padding: 32px 24px;
+  max-width: 788px;
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+
+.cart_box_title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #0b0f0e;
+}
+
+.cart_box_price {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #0d47a1;
+}
+
+.cart_box_left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart_box_right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cart_box_input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cart_box_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.all_price_box {
+  border: 1px solid #e4e9ee;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 380px;
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+
+.first_cart_wrapper {
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+}
+
+.all_price {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #818b9c;
+}
+
+.all_price_text {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #0b0f0e;
+}
+
+.cart_first {
+  font-weight: 500;
+  color: #0b0f0e;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 1200px) {
+  .cart_box{
+    max-width: 100%;
+  }
+ 
+  
+}
+@media screen and (max-width: 992px) {
+ 
+ 
+
+  .cart_box_price {
+    font-size: 16px;
+  }
+  .cart_title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .cart_text {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .cart_home {
+    justify-content: center;
+  }
+
+  .cart_top_text {
+    justify-content: center;
+  }
+
+  .all_price {
+    font-size: 15px;
+  }
+  .cart_box{
+    max-width: 100%;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+  .first_cart_wrapper {
+    flex-direction: column-reverse;
+  }
+  .all_price_box {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cart_box_title {
+    font-size: 13px;
+  }
+
+  .cart_box_price {
+    font-size: 14px;
+  }
+  .cart_box_wrapper {
+    flex-direction: column;
+  }
+  .all_price {
+    font-size: 14px;
+  }
+
+  .cart_box_right {
+    justify-content: end;
+  }
+  .price {
+    font-size: 16px;
+  }
+}

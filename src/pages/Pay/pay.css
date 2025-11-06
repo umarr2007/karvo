@@ -1,0 +1,53 @@
+.paybox {
+  width: 100%;
+  border: 1px solid #e4e9ee;
+  border-radius: 12px;
+  padding: 24px;
+  height: auto;
+  background: #fff;
+  margin-top: 30px;
+}
+
+.paybox_title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #0b0f0e;
+}
+
+.paybox_text{
+    display: flex;
+    justify-content: space-between;
+}
+
+.paybox_table{
+    width: 100%;
+    margin-top: 24px;
+    /* overflow-x: auto; */
+
+}
+
+.ant-table td{
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pagination_paybox{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+   .paybox_text{
+       flex-direction: column;
+   }
+   .paybox_title{
+    text-align: center;
+   }
+    
+}

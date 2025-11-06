@@ -1,0 +1,148 @@
+.product_title {
+  font-weight: 600;
+  font-size: 38px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #0b0f0e;
+  margin-top: 100px;
+}
+
+.card_title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: #0b0f0e;
+}
+
+.card_description {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #147bcd;
+}
+
+.product_wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.product_btn {
+  border-radius: 100%;
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.product_btn_icon {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.last_btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.product_btn_wrapper {
+  position: absolute;
+  top: 5px;
+  right:5px;
+}
+.product_btn:hover {
+  background-color: #147bcd;
+  color: #fff;
+  border: none;
+}
+
+.product_btn:active {
+  transform: scale(0.95); 
+  background-color: #0e5fa0; 
+  color: #fff;
+  border: none;
+  transition: 0.1s ease; 
+}
+
+.product_btn {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  border: 1px solid #147bcd;
+  color: white;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  cursor: pointer;
+  padding-top: 2px;
+}
+
+
+.product_btn_icon {
+  color: #147bcd;
+  font-size: 20px;
+}
+
+.product_btn:hover {
+  background-color: #147bcd;
+}
+
+.product_btn:hover .product_btn_icon {
+  color: #fff;
+}
+
+.product_btn:active {
+  transform: scale(0.85);
+  border: none;
+}
+
+@media screen and (max-width: 992px) {
+  .product_wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    gap: 20px;
+  }
+  .product_title {
+    text-align: center;
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .product_title {
+    font-size: 20px;
+  }
+  .product_wrapper {
+    padding: 10px;
+  }
+
+  .card_title {
+    font-size: 13px;
+    text-align: center;
+  }
+  .card_description {
+    font-size: 15px;
+    text-align: center;
+  }
+  .product_btn {
+    width: 22px;
+    height: 22px;
+    /* top: 5px;
+    right: 2px; */
+    padding-top: 0;
+  }
+  .product_btn_icon {
+    font-size: 13px;
+  }
+  .product_btn_wrapper {
+    position: absolute;
+    top: 5px;
+    right: 2px;
+  }
+}

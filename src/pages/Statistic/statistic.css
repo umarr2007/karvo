@@ -1,0 +1,52 @@
+.statistik_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ant-table {
+  overflow-x: auto;
+}
+
+.statistik_box {
+  border: 1px solid #e4e9ee;
+  border-radius: 12px;
+  width: 100%;
+  height: auto;
+}
+
+.top_wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    overflow-x: auto;
+  }
+
+.ant-table td, .ant-table th {
+    padding: 10px 15px !important;
+    cursor: pointer;
+}
+
+  .timesheet_table {
+    border-radius: 14px;
+    width: 100%;
+    background: #fff;
+    padding: 15px;
+  }
+  
+
+
+.statistik_title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #0b0f0e;
+  padding: 24px;
+}
+
+@media screen and (max-width: 992px) {
+  .statistik_wrapper {
+    flex-direction: column;
+  }
+}
