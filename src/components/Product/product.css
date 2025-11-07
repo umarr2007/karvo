@@ -23,7 +23,7 @@
   color: #147bcd;
 }
 
-.product_wrapper {
+.product_box {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -102,7 +102,7 @@
 }
 
 @media screen and (max-width: 992px) {
-  .product_wrapper {
+  .product_box {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     place-items: center;

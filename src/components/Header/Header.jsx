@@ -20,6 +20,8 @@ import { useNavigate } from "react-router-dom";
 import { ClockCircleOutlined } from "@ant-design/icons";
 import { Avatar, Badge } from "antd";
 import { useLocation, NavLink } from "react-router-dom";
+import { List, Card } from "antd";
+
 
 function Header() {
   const [messageApi, contextHolder] = message.useMessage();
@@ -324,7 +326,6 @@ function Header() {
                   </>
                 )}
 
-                {/* ADMIN menyular */}
                 {isAdmin && (
                   <>
                     <NavLink
