@@ -21,7 +21,7 @@ import { ClockCircleOutlined } from "@ant-design/icons";
 import { Avatar, Badge } from "antd";
 import { useLocation, NavLink } from "react-router-dom";
 import { List, Card } from "antd";
-
+import axios from "axios";
 
 function Header() {
   const [messageApi, contextHolder] = message.useMessage();
@@ -108,6 +108,7 @@ function Header() {
   const [open, setOpen] = useState(false);
   const [admin, setAdmin] = useState(null);
   const { user, setUser } = useContext(AuthContext);
+  const [categori, setCategori] = useState([]);
 
   useEffect(() => {
     const saqladim = JSON.parse(localStorage.getItem("user"));
@@ -125,6 +126,19 @@ function Header() {
       localStorage.removeItem("user");
     }
   }, [user]);
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/products/categories")
+      .then((response) => response.json())
+      .then((data) => setCategori(data))
+      .catch((error) => console.error("Error:", error));
+  }, []);
+
+  const handleChange = (e) => {
+    if (e !== "all") {
+      navigate(`/productid/${e}`);
+    }
+  };
 
   return (
     <header>
@@ -144,11 +158,14 @@ function Header() {
                   <Select
                     className="header_select"
                     defaultValue="Kategoriyalar"
+                    onChange={handleChange}
                   >
-                    <Option value="all">Kategoriyalar</Option>
-                    <Option value="kiyim">Kiyimlar</Option>
-                    <Option value="poyabzal">Poyabzal</Option>
-                    <Option value="oyinchoq">O'yinchoqlar</Option>
+                    <Option value="all">Barchasi</Option>
+                    {categori.map((item, index) => (
+                      <Option key={item.slug || index} value={item.slug}>
+                        {(item.name || item).toUpperCase()}
+                      </Option>
+                    ))}
                   </Select>
                 }
               />
@@ -255,7 +272,9 @@ function Header() {
                         <img src="/home.svg" alt="" />
                       </div>
                       <div className="bottom_right">
-                        <Link to={"/"} className="bottom_link">Bosh sahifa</Link>
+                        <Link to={"/"} className="bottom_link">
+                          Bosh sahifa
+                        </Link>
                       </div>
                     </div>
 
@@ -273,7 +292,9 @@ function Header() {
                         <img src="/shop.svg" alt="" />
                       </div>
                       <div className="bottom_right">
-                        <Link to={"/cart"} className="bottom_link">Savat</Link>
+                        <Link to={"/cart"} className="bottom_link">
+                          Savat
+                        </Link>
                       </div>
                     </div>
 
@@ -291,7 +312,9 @@ function Header() {
                         <img src="/location.svg" alt="" />
                       </div>
                       <div className="bottom_right">
-                        <Link to={"/profile"} className="bottom_link">Manzil</Link>
+                        <Link to={"/profile"} className="bottom_link">
+                          Manzil
+                        </Link>
                       </div>
                     </div>
 
@@ -300,7 +323,9 @@ function Header() {
                         <img src="/user.svg" alt="" />
                       </div>
                       <div className="bottom_right">
-                        <Link to={"/location"} className="bottom_link">Ma’lumotlarim</Link>
+                        <Link to={"/location"} className="bottom_link">
+                          Ma’lumotlarim
+                        </Link>
                       </div>
                     </div>
 

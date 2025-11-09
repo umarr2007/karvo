@@ -8,6 +8,7 @@ import { List, Card } from "antd";
 function Categories() {
   const navigate = useNavigate();
 
+
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     fetch("https://dummyjson.com/products/categories")
