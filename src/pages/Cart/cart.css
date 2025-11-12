@@ -7,19 +7,18 @@
   gap: 20px;
 }
 
+.cart_titlee {
+  text-align: center;
+}
 .cart_top_text {
   display: flex;
   gap: 20px;
 }
 
-.cart_box {
-  border: 1px solid #e4e9ee;
-  border-radius: 12px;
-  padding: 32px 24px;
-  max-width: 788px;
+.cart_img {
+  max-width: 200px;
   width: 100%;
-  height: auto;
-  background: #fff;
+  height: 200px;
 }
 
 .cart_box_title {
@@ -28,6 +27,7 @@
   line-height: 1.4;
   letter-spacing: -0.01em;
   color: #0b0f0e;
+  text-align: center;
 }
 
 .cart_box_price {
@@ -36,18 +36,12 @@
   line-height: 1.4;
   letter-spacing: -0.01em;
   color: #0d47a1;
+  text-align: center;
 }
 
-.cart_box_left {
+.cart_box_btn {
   display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.cart_box_right {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+  justify-content: center;
 }
 
 .cart_box_input {
@@ -58,8 +52,15 @@
 
 .cart_box_wrapper {
   display: flex;
-  justify-content: space-between;
+  cursor: pointer;
+  gap: 40px;
+  justify-content: center;
 }
+
+/* .cart_box_wrapper:hover {
+  transform: scale(1.3);
+  transition: 2s;
+} */
 
 .all_price_box {
   border: 1px solid #e4e9ee;
@@ -105,16 +106,11 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .cart_box{
+  .cart_box {
     max-width: 100%;
   }
- 
-  
 }
 @media screen and (max-width: 992px) {
- 
- 
-
   .cart_box_price {
     font-size: 16px;
   }
@@ -139,7 +135,7 @@
   .all_price {
     font-size: 15px;
   }
-  .cart_box{
+  .cart_box {
     max-width: 100%;
   }
 
@@ -151,6 +147,10 @@
   }
   .all_price_box {
     max-width: 100%;
+  }
+  .cart_box_wrapper {
+    gap: 20px;
+    align-items: center;
   }
 }
 

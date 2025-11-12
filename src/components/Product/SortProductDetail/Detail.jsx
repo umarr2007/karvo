@@ -4,10 +4,33 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "../../Header/Header";
+import { useNavigate } from "react-router-dom";
 
 function Detail() {
   const { id } = useParams();
   const [sortdetail, setSortdetail] = useState(null);
+
+  const [sortproduct, setSortproduct] = useState([]);
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get("https://dummyjson.com/products?sortBy=title&order=asc")
+      .then((res) => setSortproduct(res.data.products))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const addToCart = (item) => {
+    const exist = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (!exist) {
+      const newCart = [...cartItems, item];
+      setCartItems(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+    }
+  };
 
   useEffect(() => {
     axios
@@ -43,7 +66,12 @@ function Detail() {
 
             {/* Buttons */}
             <div className="detail_buttons">
-              <button className="add_to_cart_btn">Add to Cart</button>
+              <button
+                onClick={() => addToCart(sortdetail)}
+                className="add_to_cart_btn"
+              >
+                Add to Cart
+              </button>
               <Link to="/" className="back_to_products">
                 ← Back to Products
               </Link>

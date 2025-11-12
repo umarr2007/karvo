@@ -23,8 +23,9 @@ import Request from "./pages/Request/Request";
 import Contest from "./pages/Contest/Contest";
 import Target from "./pages/Target/Target";
 import Detail from "./components/Product/SortProductDetail/Detail";
-import AllProduct from "./pages/AllProduct/AllProduct";
+import Products from "./pages/AllProduct/Products";
 export const AuthContext = createContext();
+
 function App() {
   const isAdmin = true; // bu token yoki state orqali aniqlanadi
 
@@ -78,7 +79,7 @@ function App() {
         <Route path="/target" element={<Target />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/luxury/:id" element={<Luxury />} />
-        <Route path="/allproduct" element={<AllProduct />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
     </AuthContext.Provider>
   );

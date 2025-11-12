@@ -7,14 +7,26 @@ import axios from "axios";
 
 function Luxury() {
   const navigate = useNavigate();
-
   const [luxury, setLuxury] = useState([]);
+  const [sortproduct, setSortproduct] = useState([]);
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
   useEffect(() => {
     axios
       .get("https://dummyjson.com/products?sortBy=title&order=asc")
       .then((res) => setLuxury(res.data.products))
       .catch((err) => console.log(err));
   }, []);
+
+  const addToCart = (item) => {
+    const exist = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (!exist) {
+      const newCart = [...cartItems, item];
+      setCartItems(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+    }
+  };
 
   return (
     <section>
@@ -36,7 +48,7 @@ function Luxury() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation(); // Card onClick ishlashini to‘xtatadi
-                      navigate("/cart");
+                      addToCart(item);
                     }}
                     className="product_btn"
                   >
@@ -47,7 +59,11 @@ function Luxury() {
             ))}
           </div>
           <div className="last_btn">
-            <Button onClick={() => navigate("/allproduct")} style={{ height: "50px", fontSize: "16px" }} type="primary">
+            <Button
+              onClick={() => navigate("/products")}
+              style={{ height: "50px", fontSize: "16px" }}
+              type="primary"
+            >
               Barchasini ko'rish
             </Button>
           </div>

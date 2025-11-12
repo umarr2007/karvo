@@ -109,6 +109,20 @@ function Header() {
   const [admin, setAdmin] = useState(null);
   const { user, setUser } = useContext(AuthContext);
   const [categori, setCategori] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartCount(cart.length);
+
+    const handleStorageChange = () => {
+      const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      setCartCount(updatedCart.length);
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
 
   useEffect(() => {
     const saqladim = JSON.parse(localStorage.getItem("user"));
@@ -189,11 +203,14 @@ function Header() {
                 "/contest",
                 "/target",
               ].includes(location.pathname) && (
-                <Badge className="header_badge" count={5}>
+                <Badge className="header_badge" count={cartCount}>
                   <FaCartShopping
                     onClick={() => navigate("/cart")}
+                    
                     className="header_cart"
+                    
                     style={{ fontSize: "20px", color: "#818b9c" }}
+                    
                   />
                 </Badge>
               )}

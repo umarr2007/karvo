@@ -6,7 +6,7 @@ import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 import "./allproduct.css";
 import { useNavigate } from "react-router-dom";
-function AllProduct() {
+function Products() {
   const [allproduct, setAllProduct] = useState([]);
   const navigate = useNavigate();
 
@@ -66,4 +66,4 @@ function AllProduct() {
   );
 }
 
-export default AllProduct;
+export default Products;
