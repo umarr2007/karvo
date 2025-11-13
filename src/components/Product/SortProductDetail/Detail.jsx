@@ -5,10 +5,18 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "../../Header/Header";
 import { useNavigate } from "react-router-dom";
+import { Button, message, Space } from "antd";
 
 function Detail() {
   const { id } = useParams();
   const [sortdetail, setSortdetail] = useState(null);
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Mahsulot savatga qo‘shildi!",
+    });
+  };
 
   const [sortproduct, setSortproduct] = useState([]);
   const [cartItems, setCartItems] = useState(
@@ -39,10 +47,11 @@ function Detail() {
       .catch((err) => console.log(err));
   }, [id]);
 
-  if (!sortdetail) return <div>Loading...</div>;
+  if (!sortdetail) return <div className="loading">Loading...</div>;
 
   return (
     <section>
+      {contextHolder}
       <Header />
       <div className="container">
         <div className="sort_detail_wrapper">
@@ -66,12 +75,16 @@ function Detail() {
 
             {/* Buttons */}
             <div className="detail_buttons">
-              <button
-                onClick={() => addToCart(sortdetail)}
-                className="add_to_cart_btn"
+              <Button
+                type="primary"
+                onClick={() => {
+                  addToCart(sortdetail);
+                  success();
+                }}
               >
                 Add to Cart
-              </button>
+              </Button>
+
               <Link to="/" className="back_to_products">
                 ← Back to Products
               </Link>

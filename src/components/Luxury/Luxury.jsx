@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Card, Button } from "antd";
+import { Card, Button, message, Space } from "antd";
 import { FiShoppingCart } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -9,6 +9,15 @@ function Luxury() {
   const navigate = useNavigate();
   const [luxury, setLuxury] = useState([]);
   const [sortproduct, setSortproduct] = useState([]);
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Mahsulot savatga qo‘shildi!",
+    });
+  };
+
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
@@ -30,6 +39,8 @@ function Luxury() {
 
   return (
     <section>
+      {contextHolder}
+
       <div className="container">
         <h2 className="product_title">Ommabop mahsulotlar</h2>
 
@@ -49,6 +60,7 @@ function Luxury() {
                     onClick={(e) => {
                       e.stopPropagation(); // Card onClick ishlashini to‘xtatadi
                       addToCart(item);
+                      success();
                     }}
                     className="product_btn"
                   >
